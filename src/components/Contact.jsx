@@ -126,7 +126,7 @@ const Contact = () => {
                 <label htmlFor="user_name" className="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
                 <input 
                   type="text" 
-                  name="user_name"
+                  name="to_name"
                   id="user_name" 
                   placeholder="John Doe"
                   required
@@ -138,7 +138,7 @@ const Contact = () => {
                 <label htmlFor="user_email" className="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
                 <input 
                   type="email" 
-                  name="user_email"
+                  name="to_email"
                   id="user_email" 
                   placeholder="john@example.com"
                   required

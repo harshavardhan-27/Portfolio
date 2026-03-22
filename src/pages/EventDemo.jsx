@@ -38,9 +38,11 @@ const EventDemo = () => {
     const formData = new FormData(e.target);
     const name = formData.get('name');
     const email = formData.get('email');
+    const city = formData.get('city');
+    const category = formData.get('category');
     const place = selectedEvent.name;
 
-    if (!name || !email) {
+    if (!name || !email || !city || !category) {
       alert("Please fill all fields");
       setIsSubmitting(false);
       return;
@@ -49,7 +51,11 @@ const EventDemo = () => {
     const params = {
       to_name: name,
       to_email: email,
-      place: place
+      place: place,
+      date: selectedEvent.date,
+      location: selectedEvent.location,
+      city: city,
+      category: category
     };
 
     emailjs.init("wN5w_FqHbP-2MyyYn");
@@ -138,11 +144,11 @@ const EventDemo = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">Your City / Region</label>
-                  <input required type="text" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#7C3AED]" placeholder="e.g. Bangalore"/>
+                  <input required name="city" type="text" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#7C3AED]" placeholder="e.g. Bangalore"/>
                 </div>
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">Seat Category</label>
-                  <select className="w-full bg-[#11132B] rounded-lg px-4 py-3 border border-white/10 outline-none hover:border-[#7C3AED] text-white">
+                  <select name="category" className="w-full bg-[#11132B] rounded-lg px-4 py-3 border border-white/10 outline-none hover:border-[#7C3AED] text-white">
                     <option>General Admission</option>
                     <option>VIP Pass</option>
                     <option>VVIP Backstage</option>

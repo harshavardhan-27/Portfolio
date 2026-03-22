@@ -42,9 +42,12 @@ const TouristDemo = () => {
     const formData = new FormData(e.target);
     const name = formData.get('name');
     const email = formData.get('email');
+    const phone = formData.get('phone');
+    const date = formData.get('date');
+    const members = formData.get('members');
     const place = selectedDestination.name;
 
-    if (!name || !email) {
+    if (!name || !email || !phone || !date || !members) {
       alert("Please fill all fields");
       setIsSubmitting(false);
       return;
@@ -53,7 +56,10 @@ const TouristDemo = () => {
     const params = {
       to_name: name,
       to_email: email,
-      place: place
+      place: place,
+      phone: phone,
+      date: date,
+      members: members
     };
 
     emailjs.init("wN5w_FqHbP-2MyyYn");
@@ -131,17 +137,17 @@ const TouristDemo = () => {
                 </div>
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">Phone Number</label>
-                  <input required type="tel" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#2563EB]" placeholder="+91 9999999999"/>
+                  <input required name="phone" type="tel" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#2563EB]" placeholder="+91 9999999999"/>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">Travel Date</label>
-                  <input required type="date" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#2563EB]" />
+                  <input required name="date" type="date" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#2563EB]" />
                 </div>
                 <div>
                   <label className="block text-sm text-gray-400 mb-2">Number of Persons</label>
-                  <input required type="number" min="1" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#2563EB]" placeholder="2"/>
+                  <input required name="members" type="number" min="1" className="w-full bg-white/5 rounded-lg px-4 py-3 border border-white/10 outline-none focus:border-[#2563EB]" placeholder="2"/>
                 </div>
               </div>
               <button disabled={isSubmitting} type="submit" className="w-full py-4 mt-6 bg-gradient-to-r from-[#2563EB] to-[#7C3AED] rounded-xl font-bold text-white hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition disabled:opacity-70 disabled:cursor-not-allowed">
