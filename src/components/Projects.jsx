@@ -9,7 +9,7 @@ const projectsData = [
     description: "MERN stack application that recommends recipes based on ingredients. Built REST APIs, optimized MongoDB queries, and implemented JWT authentication.",
     tech: ["ReactJS", "NodeJS", "MongoDB", "Express.js"],
     github: "https://github.com/harshavardhan-27/Recipe-Recommendation-Based-on-Available",
-    live: "http://localhost:5174/",
+    live: "https://cool-genie-c1bbae.netlify.app",
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
   },
   {
